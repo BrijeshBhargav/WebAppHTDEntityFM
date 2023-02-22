@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebAppHTDEntityFM.Models.StudentsModel>
+@{
+    ViewData["Title"] = "Display";
+}
+<div class="dataTable table table-hover table-striped table-bordered">
+    <div class="#example">
+        Welcome to DisplayData page
+        @Html.ActionLink("ADD studebts","Addstudents","student")
+        <div class="info">
+        </div>
+        <div class="demo-html">
+        </div>
+    </div>
+</div>
+<table id="example" class="table table-striped" style="width:100%">
+    <dx:BootstrapGridView runat="server" DataSourceID="EmployeesDataSource" KeyFieldName="EmployeeID">
+        <ClientSideEvents Init="initMoreButton" EndCallback="initMoreButton" />
+
+
+        <tr>
+            <th>StudentID</th>
+            <th>RollNo</th>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Mail</th>
+            <th>Address</th>
+            <th>Mobile</th>
+            
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StudentID</td>
+
+                <td>@item.StudentRollno</td>
+
+                <td>@item.StudentName</td>
+
+                <td>@item.StudentDOB</td>
+
+                <td>@item.StudentMail</td>
+                <td>@item.StudentAddress</td>
+                <td>@item.StudentPhonenum</td>
+
+                <td>
+                    @Html.ActionLink("Update","update","student", new{StudentID=item.StudentID},null)
+                    @Html.ActionLink("Delete","Delete","student", new{StudentID=item.StudentID}, new { onclick = "return confirm('Are you sure wants to delete?');" })
+                </td>
+
+            </tr>
+        }
+
+
+
+
+</table>

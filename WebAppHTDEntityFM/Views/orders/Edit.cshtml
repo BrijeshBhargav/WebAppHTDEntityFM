@@ -1,0 +1,79 @@
+﻿@using WebAppHTDEntityFM.Models
+@model OrdersModel
+@{
+    ViewData["Title"] = "Addorders";
+}
+<body>
+    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card rounded-3">
+                        <h4>update products</h4>
+
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
+
+                            @using (Html.BeginForm())
+                            {
+                                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                                    <div class="col-md-6">
+                                        <div class="form-outline ">
+                                            @Html.TextBoxFor(model => model.ORDERID, new { @class = "form-control", placeholder="Enter OrderID" })
+                                            <label class="form-label" for="form3Example1q">OrderID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                                    <div class="col-md-6">
+
+                                        <div class="form-outline">
+                                            @Html.EditorFor(model => model.CUSTOMERID, new { @class = "form-control", placeholder="Enter CustomerID" })
+                                            <label class="form-label" for="form3Example1w">CustomerId </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                                    <div class="col-md-6">
+
+                                        <div class="form-outline">
+                                            @Html.EditorFor(model => model.PAYMENTMODE, new { @class = "form-control", placeholder="Enter PaymentMode" })
+                                            <label class="form-label" for="form3Example1w">Paymentmode </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                                    <div class="col-md-6">
+
+                                        <div class="form-outline">
+                                            @Html.EditorFor(model => model.SHIPPDATE, new { @class = "form-control", placeholder="Enter ShippedDate" })
+                                            <label class="form-label" for="form3Example1w">Shippdate </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                                    <div class="col-md-6">
+
+                                        <div class="form-outline">
+                                            @Html.EditorFor(model => model.STATUS, new { @class = "form-control", placeholder="Enter status" })
+                                            <label class="form-label" for="form3Example1w">Status </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+                            }
+
+                            <div>
+                                @Html.ActionLink("Back to List", "Display")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+

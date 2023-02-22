@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebAppHTDEntityFM.Models.ProductsModel>
+@{
+    ViewData["Title"] = "Display";
+}
+<div class="dataTable table table-hover table-striped table-bordered">
+    <div class="#example">
+        Welcome to DisplayData page
+        @Html.ActionLink("ADD products","Addproducts","product")
+        <div class="info">
+        </div>
+        <div class="demo-html">
+        </div>
+    </div>
+</div>
+<table id="example" class="table table-striped" style="width:100%">
+    <dx:BootstrapGridView runat="server" DataSourceID="EmployeesDataSource" KeyFieldName="EmployeeID">
+        <ClientSideEvents Init="initMoreButton" EndCallback="initMoreButton" />
+
+
+        <tr>
+            <th>PID</th>
+            <th>PNAME</th>
+            <th>DESCRIPTION</th>
+            <th>EXPIRYDATE</th>
+            <th>PRICE</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PID</td>
+
+                <td>@item.PNAME</td>
+
+                <td>@item.DESCRIPTION</td>
+
+                <td>@item.EXPIRYDATE</td>
+
+                <td>@item.PRICE</td>
+
+                <td>
+                    @Html.ActionLink("Update","update","product", new{PID=item.PID},null)
+                    @Html.ActionLink("Delete","Delete","product", new{PID=item.PID}, new { onclick = "return confirm('Are you sure wants to delete?');" })
+                </td>
+
+            </tr>
+        }
+
+
+
+
+</table>
